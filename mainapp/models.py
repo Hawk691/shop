@@ -45,6 +45,22 @@ class Product(models.Model):
         return self.title
 
 
+class NotebookProduct(Product):
+    """
+    Model representing class of product for Product class 
+    """
+
+    diagonal = models.CharField(max_length=255, verbose_name='Diagonal')
+    dispaly_type = models.CharField(max_length=255, verbose_name='Display type')
+    processor_frq = models.Charfield(max_length=255, verbose_name='Processor frequenci')
+    ram = models.CharField(max_length=255, verbose_name='Random memory qty.')
+    video = models.CharField(max_length=255, verbose_name='Video card type')
+    time_withot_charge = models.CharField(max_length=255, verbose_name='Time to charge')
+
+    def __str__(self):
+        return "
+
+
 class CartProduct(models.Model):
     """
     Model representing products in the particular cart of the customer
