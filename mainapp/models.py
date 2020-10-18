@@ -45,20 +45,40 @@ class Product(models.Model):
         return self.title
 
 
-class NotebookProduct(Product):
+class Notebook(Product):
     """
-    Model representing class of product for Product class 
+    Model representing notebook's group property
     """
 
     diagonal = models.CharField(max_length=255, verbose_name='Diagonal')
     dispaly_type = models.CharField(max_length=255, verbose_name='Display type')
-    processor_frq = models.Charfield(max_length=255, verbose_name='Processor frequenci')
+    processor_freq = models.CharField(max_length=255, verbose_name='Processor frequenci')
     ram = models.CharField(max_length=255, verbose_name='Random memory qty.')
     video = models.CharField(max_length=255, verbose_name='Video card type')
     time_withot_charge = models.CharField(max_length=255, verbose_name='Time to charge')
 
     def __str__(self):
-        return "
+        return "{}:{}".format(self.category.name, self.title)
+
+
+class Smartphone(Product):
+    """
+    Model representing smartphone's group property
+    """
+
+    diagonal = models.CharField(max_length=255, verbose_name='Diagonal')
+    display_type = models.CharField(max_length=255, verbose_name='Type of display')
+    resolution = models.CharField(max_length=255, verbose_name='Display resolution')
+    accum_volume = models.CharField(max_length=255, verbose_name='Accumulator volume')
+    ram = models.CharField(max_length=255, verbose_name='Random memory qty.')
+    sd = models.BooleanField(default=True)
+    sd_volume_max = models.CharField(max_length=255, verbose_name='Max memory size')
+    main_cam_mp = models.CharField(max_length=255, verbose_name='Main camera resolution')
+    frontal_cam_mp = models.CharField(max_length=255, verbose_name='Frontal camera resolution')
+
+    def __str__(self):
+        return "{}:{}".format(self.category.name, self.title)
+
 
 
 class CartProduct(models.Model):
